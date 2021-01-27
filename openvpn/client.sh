@@ -3,8 +3,6 @@
 CCA=`docker exec -i openvpn-server bash -c 'cat /opt/openvpn-ca/keys/ca.crt'`
 CCERT=`docker exec -i openvpn-server bash -c 'cat /opt/openvpn-ca/keys/client.crt'`
 CKEY=`docker exec -i openvpn-server bash -c 'cat /opt/openvpn-ca/keys/client.key'`
-SIP=`ip route | grep default | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"`
-
 RIP=`ip route | grep default`
 SIP=`echo ${RIP##*dev} | awk '{print $1}'`
 IPA=`ip a | grep $SIP | grep inet | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"`
