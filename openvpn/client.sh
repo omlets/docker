@@ -5,13 +5,18 @@ CCERT=`docker exec -i openvpn-server bash -c 'cat /opt/openvpn-ca/keys/client.cr
 CKEY=`docker exec -i openvpn-server bash -c 'cat /opt/openvpn-ca/keys/client.key'`
 SIP=`ip route | grep default | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"`
 
+RIP=`ip route | grep default`
+SIP=`echo ${RIP##*dev} | awk '{print $1}'`
+IPA=`ip a | grep $SIP | grep inet | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"`
+IP=`echo $IPA | awk '{print $1}'`
+
 cat > client.ovpn <<EOF
 
 client
 dev tun
 proto tcp
 
-remote $SIP 1194
+remote $IP 1194
 cipher AES-256-CBC
 resolv-retry infinite
 
