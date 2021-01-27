@@ -11,34 +11,8 @@ or
 docker-compose up -d --build
 ```
 
-Use template:
+Create client configuration:
 
 ```
-client
-dev tun
-proto tcp
-
-remote <ServerIP> 1194
-cipher AES-256-CBC
-resolv-retry infinite
-
-nobind
-persist-key
-persist-tun
-
-verb 2
-mute 20
-keepalive 10 120
-
-float
-resolv-retry infinite
-
-<ca>
-</ca>
-
-<cert>
-</cert>
-
-<key>
-</key>
+./client.sh
 ```
