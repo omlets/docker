@@ -1,8 +1,6 @@
 ## OpenVPN server
 
-Change the organization name and other parameters in the vars file.
-
-Be careful to change only the parameters below and nothing else.
+Change the organization name and other parameters in the vars file.<br/>Be careful to change only the parameters below and nothing else.
 
 ```
 export KEY_COUNTRY="RU"
