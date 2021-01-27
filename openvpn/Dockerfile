@@ -19,7 +19,8 @@ COPY vars /opt/openvpn-ca
 
 RUN cd /opt/openvpn-ca && /bin/bash -c "source vars && ./clean-all && ./build-ca --batch && ./build-key-server --batch server && ./build-dh --batch"
 RUN /bin/bash -c "cp /opt/openvpn-ca/keys/{server.crt,server.key,ca.crt,dh2048.pem} /etc/openvpn"
+RUN cd /opt/openvpn-ca && /bin/bash -c "source vars && ./build-key --batch client"
 
 EXPOSE 1194
 
-CMD ["sh", "-c", "service openvpn start ; tail -F bootstrap.log"]
+CMD ["sh", "-c", "service openvpn start ; tail -F /etc/openvpn/openvpn-status.log"]

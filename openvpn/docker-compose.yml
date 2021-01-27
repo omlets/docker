@@ -1,0 +1,13 @@
+version: "3"
+services:
+  openvpn-server:
+    image: openvpn-server:latest
+    container_name: openvpn-server
+    hostname: openvpn-server
+    build: .
+    network_mode: "host"
+    restart: always
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    cap_add:
+      - NET_ADMIN
