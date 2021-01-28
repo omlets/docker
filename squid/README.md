@@ -12,6 +12,13 @@ Run image:
 docker run -dit --restart always --name squid-server --hostname squid-server --publish 3128:3128 squid-server:latest
 ```
 
+Or build and run use docker-compose:
+
+```
+docker-compose build
+docker-compose up -d
+```
+
 To create username and password pair, in container run command:
 
 ```
