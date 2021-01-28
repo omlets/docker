@@ -1,0 +1,8 @@
+version: "3"
+services:
+  squid-server:
+    image: squid-server:latest
+    container_name: squid-server
+    hostname: squid-server
+    build: .
+    restart: always
