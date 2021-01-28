@@ -22,12 +22,14 @@ docker-compose up -d
 To create username and password pair, in container run command:
 
 ```
-htpasswd -c /etc/squid/squid_passwd username
+docker exec -it squid-server htpasswd /etc/squid/squid_passwd username
 ```
 
 After add user in squid proxy server, restart container:
 
 ```
 docker restart squid-server
+or
+docker-compose restart squid-server
 ```
 
