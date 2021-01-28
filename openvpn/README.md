@@ -24,6 +24,10 @@ or
 ./pre-up.sh
 docker-compose up -d --build
 ```
+or run single docker instance
+```
+docker run --cap-add=NET_ADMIN --device=/dev/net/tun --network host --restart always --name openvpn-server --hostname openvpn-server -dit openvpn-server:latest
+```
 
 Create client configuration:
 
