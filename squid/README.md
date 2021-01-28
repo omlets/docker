@@ -1,6 +1,6 @@
 ## Squid HTTP Proxy server
 
-Clone files and build image from Dockerfile:
+**Clone files and build image from Dockerfile:**
 
 ```
 docker build --tag squid-server .
@@ -12,7 +12,7 @@ Run image:
 docker run -dit --restart always --name squid-server --hostname squid-server --publish 3128:3128 squid-server:latest
 ```
 
-Or build and run use docker-compose:
+**Or build and run use docker-compose:**
 
 ```
 docker-compose build
